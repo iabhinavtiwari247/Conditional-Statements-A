@@ -1,0 +1,152 @@
+/*  Que 6 - Program that takes a temperature input and prints :
+- cold if temp. is below 15 deg.
+- warm if temp is between 15 and 30 deg. 
+- hot if temp. is above 30 deg.*/
+#include <iostream>
+using namespace std;
+int main() {
+    float temperature;
+
+    cout << "Enter the temperature in degrees Celsius: ";
+    cin >> temperature;
+
+    if (temperature < 15) {
+        cout << "Cold" << endl;
+    } else if (temperature >= 15 && temperature <= 30) {
+        cout << "Warm" << endl;
+    } else {
+        cout << "Hot" << endl;
+    }
+
+    return 0;
+}
+
+/* Que  7 - Write a program to determine whether a given year is leap year or not using if-ej\lse logic. */
+#include <iostream>
+using namespace std;
+int main() {
+    int year;
+
+    cout << "Enter a year: ";
+    cin >> year;
+
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0) {
+                cout << year << " is a leap year." << endl;
+            } else {
+                cout << year << " is not a leap year." << endl;
+            }
+        } else {
+            cout << year << " is a leap year." << endl;
+        }
+    } else {
+        cout << year << " is not a leap year." << endl;
+    }
+
+    return 0;
+}
+
+/*  Que-8 - write a program that takes three numbers and displays the largest using only if-else / else-if logic/statements. */
+#include <iostream>
+using namespace std;
+int main() {
+    float num1, num2, num3;
+
+    cout << "Enter three numbers: ";
+    cin >> num1 >> num2 >> num3;
+
+    if (num1 >= num2 && num1 >= num3) {
+        cout << "The largest number is: " << num1 << endl;
+    } else if (num2 >= num1 && num2 >= num3) {
+        cout << "The largest number is: " << num2 << endl;
+    } else {
+        cout << "The largest number is: " << num3 << endl;
+    }
+
+    return 0;
+}
+
+/* QUE - 9 - Write a program that takes student marks (0-100) and assigns a grade using else-if / conditional statementS
+- A (>=90) , B (>=75) , C (>=50) , D (>=35) , F (<35) */
+/* QUE - 9 - Write a program that takes student marks (0-100) and assigns a grade using else-if / conditional statementS
+- A (>=90) , B (>=75) , C (>=50) , D (>=35) , F (<35) */
+#include <iostream>
+using namespace std;
+int main() {
+    int marks;
+
+    cout << "Enter the student's marks (0-100): ";
+    if (!(cin >> marks) || marks < 0 || marks > 100) {
+        cerr << "Invalid input. Please enter a number between 0 and 100." << endl;
+        return 1;
+    }
+
+    if (marks >= 90) {
+        cout << "Grade: A" << endl;
+    } else if (marks >= 75) {
+        cout << "Grade: B" << endl;
+    } else if (marks >= 50) {
+        cout << "Grade: C" << endl;
+    } else if (marks >= 35) {
+        cout << "Grade: D" << endl;
+    } else {
+        cout << "Grade: F" << endl;
+    }
+
+    return 0;
+}
+
+/* Explaination - 
+Optimized tool selection- Condition: `!(cin >> marks)` — attempts to read an integer into `marks`; `cin >> marks` yields `cin`, which converts to boolean true on success and false on failure (non-numeric input or EOF). The `!` negates that, so this is true when the input operation failed.
+- Range checks: `marks < 0 || marks > 100` — true if the parsed value is outside the allowed 0–100 range.
+- Combined logic: the whole `if` fires when either the input failed or the value is out of range. The `||` operator short-circuits left-to-right, so the range checks are not evaluated if the read already failed (avoids using an uninitialized/invalid `marks`).
+- Body: `cerr << "Invalid input..." << endl;` — writes the error message to standard error.
+- Exit: `return 1;` — returns nonzero from `main`, signalling an error to the caller/OS.
+- Effect: on invalid input the program reports the problem and terminates with an error code; if the `if` is false the program continues normally. */
+
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- 
+/* Que 10 - Write a program to determine if a three digit number is a palindrome. [no loops allowed , only if-else logic] */
+#include <iostream>
+using namespace std;
+
+int main() {
+    int number, firstDigit, lastDigit;
+
+    cout << "Enter a three-digit number: ";
+    if (!(cin >> number) || number < 100 || number > 999) {
+        cerr << "Invalid input. Please enter a three-digit number." << endl;
+        return 1;
+    }
+
+    firstDigit = number / 100;
+    lastDigit = number % 10;
+
+    if (firstDigit == lastDigit) {
+        cout << "The number is a palindrome." << endl;
+    } else {
+        cout << "The number is not a palindrome." << endl;
+    }
+
+    return 0;
+}
+/* Que 10 - Write a program to determine if a three digit number is a palindrome. use only if else*/
+#include <iostream>
+using namespace std;
+int main() {
+    int num, firstDigit, seconddigit , thirddigit;
+    cout << "Enter a three-digit number: ";
+    if (!(cin >> num) || num < 100 || num > 999) {
+        cerr << "Invalid input. Please enter a three-digit number." << endl;
+        return 1;
+    }
+    firstDigit = num / 100;
+    seconddigit = (num / 10) % 10;
+    thirddigit = num % 10;
+    if (firstDigit == thirddigit) {
+        cout << "The number is a palindrome." << endl;
+    } else {
+        cout << "The number is not a palindrome." << endl;
+    }
+    return 0;
+}
