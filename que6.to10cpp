@@ -69,8 +69,7 @@ int main() {
 
 /* QUE - 9 - Write a program that takes student marks (0-100) and assigns a grade using else-if / conditional statementS
 - A (>=90) , B (>=75) , C (>=50) , D (>=35) , F (<35) */
-/* QUE - 9 - Write a program that takes student marks (0-100) and assigns a grade using else-if / conditional statementS
-- A (>=90) , B (>=75) , C (>=50) , D (>=35) , F (<35) */
+
 #include <iostream>
 using namespace std;
 int main() {
